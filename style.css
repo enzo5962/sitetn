@@ -1,0 +1,476 @@
+/* style.css */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: radial-gradient(circle at top, #0b1220, #05070f);
+    color: #e6edf3;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+
+    width: 92%;
+
+    max-width: 1200px;
+
+    margin: 40px auto;
+
+    padding: 25px;
+
+    background: rgba(
+        255,
+        255,
+        255,
+        0.03
+    );
+
+    border: 1px solid rgba(
+        255,
+        255,
+        255,
+        0.08
+    );
+
+    border-radius: 18px;
+
+    backdrop-filter: blur(12px);
+
+    box-shadow: 0 0 40px rgba(
+        0,
+        140,
+        255,
+        0.08
+    );
+
+    position: relative;
+}
+
+/* =========================
+   TITRES
+========================= */
+
+h1 {
+
+    text-align: center;
+
+    font-size: 32px;
+
+    letter-spacing: 1px;
+
+    color: #4cc9f0;
+
+    text-shadow: 0 0 15px rgba(
+        76,
+        201,
+        240,
+        0.3
+    );
+}
+
+h2 {
+
+    color: #ffffff;
+
+    border-left: 4px solid #4cc9f0;
+
+    padding-left: 10px;
+
+    margin-top: 25px;
+}
+
+h3 {
+
+    color: #90e0ef;
+}
+
+/* =========================
+   BOUTONS
+========================= */
+
+button {
+
+    width: 100%;
+
+    padding: 12px;
+
+    margin-top: 10px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: linear-gradient(
+        135deg,
+        #4cc9f0,
+        #4361ee
+    );
+
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.25s ease-in-out;
+
+    box-shadow: 0 5px 15px rgba(
+        76,
+        201,
+        240,
+        0.2
+    );
+}
+
+button:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 25px rgba(
+        76,
+        201,
+        240,
+        0.4
+    );
+}
+
+/* =========================
+   FLOATING LABELS
+========================= */
+
+.floating-group {
+
+    position: relative;
+
+    margin-top: 22px;
+}
+
+/* INPUTS */
+
+.floating-group input,
+.floating-group textarea,
+.floating-group select {
+
+    width: 100%;
+
+    padding: 18px 14px;
+
+    font-size: 15px;
+
+    border-radius: 12px;
+
+    border: 1px solid rgba(
+        255,
+        255,
+        255,
+        0.15
+    );
+
+    background: rgba(
+        255,
+        255,
+        255,
+        0.05
+    );
+
+    color: white;
+
+    outline: none;
+
+    transition: 0.25s ease;
+
+    box-sizing: border-box;
+
+    appearance: none;
+
+    -webkit-appearance: none;
+
+    -moz-appearance: none;
+
+    cursor: pointer;
+}
+
+/* OPTIONS */
+
+.floating-group select option {
+
+    background: #0b1220;
+
+    color: white;
+}
+
+/* TEXTAREA */
+
+.floating-group textarea {
+
+    min-height: 120px;
+
+    resize: vertical;
+}
+
+/* LABEL */
+
+.floating-group label {
+
+    position: absolute;
+
+    left: 14px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: rgba(
+        255,
+        255,
+        255,
+        0.6
+    );
+
+    font-size: 15px;
+
+    pointer-events: none;
+
+    transition: 0.25s ease;
+
+    padding: 0 6px;
+}
+
+/* LABEL QUI MONTE */
+
+.floating-group input:focus + label,
+.floating-group input:not(:placeholder-shown) + label,
+
+.floating-group textarea:focus + label,
+.floating-group textarea:not(:placeholder-shown) + label,
+
+.floating-group select:focus + label,
+.floating-group select:valid + label {
+
+    top: 0;
+
+    transform: translateY(-50%);
+
+    font-size: 12px;
+
+    color: #4cc9f0;
+
+    background: #0b1220;
+}
+
+/* FOCUS */
+
+.floating-group input:focus,
+.floating-group textarea:focus,
+.floating-group select:focus {
+
+    border-color: #4cc9f0;
+
+    box-shadow: 0 0 12px rgba(
+        76,
+        201,
+        240,
+        0.25
+    );
+}
+
+/* PLACEHOLDER */
+
+.floating-group input::placeholder,
+.floating-group textarea::placeholder {
+
+    color: transparent;
+}
+
+/* =========================
+   TABLEAU
+========================= */
+
+table {
+
+    width: 100%;
+
+    margin-top: 20px;
+
+    border-collapse: collapse;
+
+    overflow: hidden;
+
+    border-radius: 12px;
+}
+
+th {
+
+    background: linear-gradient(
+        135deg,
+        #4361ee,
+        #4cc9f0
+    );
+
+    color: white;
+
+    padding: 12px;
+
+    text-transform: uppercase;
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+}
+
+td {
+
+    padding: 12px;
+
+    border-bottom: 1px solid rgba(
+        255,
+        255,
+        255,
+        0.05
+    );
+
+    text-align: center;
+}
+
+tr:hover {
+
+    background: rgba(
+        76,
+        201,
+        240,
+        0.08
+    );
+}
+
+/* =========================
+   HIDDEN
+========================= */
+
+.hidden {
+
+    display: none;
+}
+
+/* =========================
+   LOGS
+========================= */
+
+.log-item {
+
+    background: rgba(
+        255,
+        255,
+        255,
+        0.03
+    );
+
+    border: 1px solid rgba(
+        255,
+        255,
+        255,
+        0.08
+    );
+
+    border-radius: 14px;
+
+    padding: 18px;
+
+    margin-top: 15px;
+
+    backdrop-filter: blur(10px);
+
+    box-shadow: 0 0 20px rgba(
+        76,
+        201,
+        240,
+        0.08
+    );
+}
+
+/* =========================
+   ONGLETS LOGS
+========================= */
+
+#logsTabs {
+
+    display: flex;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+
+    margin-top: 15px;
+
+    margin-bottom: 15px;
+}
+
+.log-tab {
+
+    width: auto !important;
+
+    padding: 10px 16px !important;
+
+    border-radius: 999px !important;
+
+    font-size: 13px;
+}
+
+/* =========================
+   ONGLETS SESSION
+========================= */
+
+#sessionsTabs {
+
+    display: flex;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+
+    margin-top: 20px;
+
+    margin-bottom: 20px;
+}
+
+.session-tab {
+
+    width: auto !important;
+
+    padding: 10px 18px !important;
+
+    border-radius: 999px !important;
+
+    font-size: 13px !important;
+}
+
+/* =========================
+   EFFET NEON
+========================= */
+
+.container::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 100%;
+
+    height: 100%;
+
+    filter: blur(80px);
+
+    opacity: 0.15;
+
+    background: linear-gradient(
+        45deg,
+        #4cc9f0,
+        #4361ee,
+        #7209b7
+    );
+
+    z-index: -1;
+}

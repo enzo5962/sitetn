@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Formation TN</title>
+    <h2>Powered By Enzo Diaz</h2>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Plateforme Formation</h1>
+
+    <!-- MENU -->
+
+    <button onclick="showFormateur()">
+        Espace Formateur
+    </button>
+
+    <button onclick="showDirection()">
+        Espace Direction
+    </button>
+
+    <button onclick="showCandidat()">
+        Espace Candidat
+    </button>
+
+    <hr>
+
+    <!-- LOGIN FORMATEUR -->
+
+    <div id="loginBox" class="hidden">
+
+        <h2>Connexion Formateur</h2>
+
+        <div class="floating-group">
+
+            <input
+                type="text"
+                id="username"
+                placeholder=" "
+                required
+            >
+
+            <label for="username">
+                Identifiant
+            </label>
+
+        </div>
+
+        <div class="floating-group">
+
+            <input
+                type="password"
+                id="password"
+                placeholder=" "
+                required
+            >
+
+            <label for="password">
+                Mot de passe
+            </label>
+
+        </div>
+
+        <button onclick="login()">
+            Connexion
+        </button>
+
+        <button onclick="creerCompteFormateur()">
+            Créer un compte formateur
+        </button>
+
+    </div>
+
+    <!-- FORMATEUR -->
+
+    <div id="formateurBox" class="hidden">
+
+        <h2>Espace Formateur</h2>
+
+        <h3>Ajouter candidat</h3>
+
+        <div class="floating-group">
+
+            <input
+                type="text"
+                id="nomCandidat"
+                placeholder=" "
+                required
+            >
+
+            <label for="nomCandidat">
+                Nom - Prenom Candidat
+            </label>
+
+        </div>
+
+        <button onclick="ajouterCandidat()">
+            Ajouter candidat
+        </button>
+
+        <hr>
+
+        <h3>Notation</h3>
+
+        <!-- SELECT STYLE FLOATING -->
+
+        <div class="floating-group">
+
+            <select
+                id="candidatSelect"
+                required
+            >
+                <option
+                    value=""
+                    disabled
+                    selected
+                ></option>
+            </select>
+
+            <label for="candidatSelect">
+                Sélectionner un candidat
+            </label>
+
+        </div>
+
+        <div class="floating-group">
+
+            <input
+                type="number"
+                id="cas1"
+                placeholder=" "
+                required
+            >
+
+            <label for="cas1">
+                Cas pratique 1
+            </label>
+
+        </div>
+
+        <div class="floating-group">
+
+            <input
+                type="number"
+                id="cas2"
+                placeholder=" "
+                required
+            >
+
+            <label for="cas2">
+                Cas pratique 2
+            </label>
+
+        </div>
+
+        <div class="floating-group">
+
+            <input
+                type="number"
+                id="cas3"
+                placeholder=" "
+                required
+            >
+
+            <label for="cas3">
+                Cas pratique 3
+            </label>
+
+        </div>
+
+        <div class="floating-group">
+
+            <input
+                type="number"
+                id="cas4"
+                placeholder=" "
+                required
+            >
+
+            <label for="cas4">
+                Cas pratique 4
+            </label>
+
+        </div>
+
+        <div class="floating-group">
+
+            <input
+                type="number"
+                id="cas5"
+                placeholder=" "
+                required
+            >
+
+            <label for="cas5">
+                Cas pratique 5
+            </label>
+
+        </div>
+
+        <div class="floating-group">
+
+            <textarea
+                id="commentaire"
+                placeholder=" "
+                required
+            ></textarea>
+
+            <label for="commentaire">
+                Commentaire
+            </label>
+
+        </div>
+
+        <div class="floating-group">
+
+            <input
+                type="datetime-local"
+                id="datePublication"
+                placeholder=" "
+                required
+            >
+
+            <label for="datePublication">
+                Date et heure de publication
+            </label>
+
+        </div>
+
+        <button onclick="enregistrerNotes()">
+            Enregistrer notes
+        </button>
+
+    </div>
+
+    <!-- DIRECTION -->
+
+    <div id="directionBox" class="hidden">
+
+        <h2>Espace Direction</h2>
+
+        <div class="floating-group">
+
+            <input
+                type="text"
+                id="directionUsername"
+                placeholder=" "
+                required
+            >
+
+            <label for="directionUsername">
+                Identifiant direction
+            </label>
+
+        </div>
+
+        <div class="floating-group">
+
+            <input
+                type="password"
+                id="directionPassword"
+                placeholder=" "
+                required
+            >
+
+            <label for="directionPassword">
+                Mot de passe direction
+            </label>
+
+        </div>
+
+        <button onclick="loginDirection()">
+            Connexion Direction
+        </button>
+
+        <div id="directionContent" class="hidden">
+
+            <hr>
+
+            <h3>Validation des formateurs</h3>
+
+            <div id="listeFormateurs"></div>
+
+            <hr>
+
+            <h3>Paramètres des notes</h3>
+
+            <div class="floating-group">
+
+                <input
+                    type="number"
+                    id="max1"
+                    placeholder=" "
+                    required
+                >
+
+                <label for="max1">
+                    Max Cas 1
+                </label>
+
+            </div>
+
+            <div class="floating-group">
+
+                <input
+                    type="number"
+                    id="max2"
+                    placeholder=" "
+                    required
+                >
+
+                <label for="max2">
+                    Max Cas 2
+                </label>
+
+            </div>
+
+            <div class="floating-group">
+
+                <input
+                    type="number"
+                    id="max3"
+                    placeholder=" "
+                    required
+                >
+
+                <label for="max3">
+                    Max Cas 3
+                </label>
+
+            </div>
+
+            <div class="floating-group">
+
+                <input
+                    type="number"
+                    id="max4"
+                    placeholder=" "
+                    required
+                >
+
+                <label for="max4">
+                    Max Cas 4
+                </label>
+
+            </div>
+
+            <div class="floating-group">
+
+                <input
+                    type="number"
+                    id="max5"
+                    placeholder=" "
+                    required
+                >
+
+                <label for="max5">
+                    Max Cas 5
+                </label>
+
+            </div>
+
+            <div class="floating-group">
+
+                <input
+                    type="number"
+                    id="seuilAccepte"
+                    placeholder=" "
+                    required
+                >
+
+                <label for="seuilAccepte">
+                    Seuil accepté
+                </label>
+
+            </div>
+
+            <div class="floating-group">
+
+                <input
+                    type="number"
+                    id="seuilRattrapage"
+                    placeholder=" "
+                    required
+                >
+
+                <label for="seuilRattrapage">
+                    Seuil rattrapage
+                </label>
+
+            </div>
+
+            <button onclick="sauvegarderParametres()">
+                Sauvegarder paramètres
+            </button>
+
+            <hr>
+
+            <button onclick="publierToutesNotes()">
+                Publier toutes les notes
+            </button>
+
+            <hr>
+
+            <h3>Logs des actions</h3>
+
+            <div id="logsTabs"></div>
+
+            <div id="logsBox"></div>
+
+        </div>
+
+    </div>
+
+    <!-- CANDIDAT -->
+
+    <div id="candidatBox" class="hidden">
+
+        <h2>Résultats</h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Nom</th>
+                    <th>Cas1</th>
+                    <th>Cas2</th>
+                    <th>Cas3</th>
+                    <th>Cas4</th>
+                    <th>Cas5</th>
+                    <th>Total</th>
+                    <th>Statut</th>
+                    <th>Commentaire</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="publicResults"></tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
